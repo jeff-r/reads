@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  title: MyString
+  link: MyString
+  feed_id: 1
+  read: false
+  description: MyText
+
+two:
+  title: MyString
+  link: MyString
+  feed_id: 1
+  read: false
+  description: MyText

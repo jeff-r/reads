@@ -1,0 +1,7 @@
+<div id='all_feeds_list'>
+	<ul>
+	<% Feed.all.each do |feed| %>
+		<li><%= link_to feed.title, url_for(:controller=>:feeds, :action=>:show, :id=>feed.id) %></li>
+	<% end %>
+	</ul>
+</div>

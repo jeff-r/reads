@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<div id='feed_header'>
+	<p>
+		<a href='<%= @feed.url %>'><%= @feed.title %></a>: <%= @feed.feed_items.count %> items.
+		Last updated: <%= time_ago_in_words(@feed.updated_at) %> ago.
+		</p>
+	<p><%= link_to 'Refresh the feed', url_for(:controller=>:feed_items, :action=>:refresh, :feed_id=>@feed.id) %>
+--		<%= link_to 'Delete all feed items', url_for(:controller=>:feed_items, :action=>:delete_all_items, :feed_id=>@feed.id) %>
+		
+		 </p>
+	<p>Most recent item time: <%= @feed.most_recent_item_time %></p>
+	
+</div>
+
+<% if @feed.feed_items.count == 0 %>
+	<p></p>
+<% else %>
+
+	<% @feed.feed_items.each do |item| %>
+	<% itemclass = 'item' %>
+	<% if item.read %>
+		<% itemclass = 'item already_read' %>
+	<% end %>
+		
+	<div class="<%= itemclass %>">
+		<div class='item_title'><a target="_blank" href="<%= item.link %>"><%= item.title %></a></div>
+		<div class='item_description'><%= item.description.html_safe %></div>
+		<p>Time: <%= item.pub_date %></p>
+		<div class='item_actions'>
+
+			<%= form_tag(:feed_item, :method=>'put') do %>
+			<%= hidden_field_tag(:read_item_id, item.id) %>
+			<%= submit_tag 'Mark as read' %>
+			<% end %>
+			<p>item.id: <%= item.id %></p>
+		</div>
+	</div>
+	<% end %>
+<% end %>
+
+
+<%= link_to 'Edit', edit_feed_path(@feed) %> |
+<%= link_to 'Back', feeds_path %>
+<%= link_to 'Delete feed', url_for(:controller=>:feeds, :id=>@feed.id, :action=>'destroy'), :method=>'delete' %>
