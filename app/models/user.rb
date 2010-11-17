@@ -12,6 +12,7 @@ class User < ActiveRecord::Base
   
   # This shouldn't be necessary. 
   def feeds
-    Feed.where(:user_id=>id)
+    Feed.where(:user_id=>id).order("sort_order asc")
+    # Feed.order("order asc")
   end
 end

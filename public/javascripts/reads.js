@@ -7,9 +7,33 @@ $(function() {
 	$('.mark_as_read_button').click(jr.onMarkAsRead);
 	// $('a').attr('target', "_blank");
 	$("a[href^=http://]").attr('target', "_blank");
+	jr.setup_nav_draggables();
 });
 
 var jr = {};
+
+jr.setup_nav_draggables = function() {
+	$('.sortable').sortable({ 
+				placeholder: 'ui-state-highlight',
+				forcePlaceholderSize: true,
+				forceHolderSize: true
+				});
+				
+				
+	// $('.sortable').sortable();
+	// $('.sortable').disableSelection();
+	
+	// $('.nav_feed_link').draggable({ revert: true });
+	// $('#nav_feed_trash').droppable({
+	// 	hoverClass: 'droppable_hover',
+	// 	activeClass: 'droppable_active',
+	// 	accept: '.nav_feed_link',
+	// 	drop: function(event, ui) {
+	// 		console.log('dropped');
+	// 	}
+	// });
+}
+
 
 jr.onMarkAsRead = function(event) {
 	event.preventDefault();

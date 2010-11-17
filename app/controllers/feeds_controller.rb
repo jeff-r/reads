@@ -6,12 +6,25 @@ class FeedsController < ApplicationController
   def index
     # @feeds = Feed.where(:user_id=>current_user.id)
     @feeds = current_user.feeds.all
+    
+    # sort_feeds
+    
 
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @feeds }
     end
   end
+
+  def sort_feeds
+    index = 0
+    @feeds.each do |feed|
+      feed.sort_order = index
+      feed.save
+      index = index + 1
+    end
+  end
+
 
   # GET /feeds/1
   # GET /feeds/1.xml

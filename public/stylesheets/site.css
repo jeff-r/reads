@@ -174,6 +174,11 @@ p {
 	height: 50px;
 	background: #aaa;
 }
+#nav_feed_trash {
+	width: 200px;
+	height: 50px;
+	background: #999;
+}
 .action_box {
 	width: 258px;
 	height: 50px;
@@ -181,10 +186,13 @@ p {
 	border: solid 1px #999;
 }
 .droppable_hover {
+	background: red;
+	border: solid 1px #000;
+}
+.droppable_active {
 	background: #ddd;
 	border: solid 1px #000;
 }
-
 .item_title {
 	font-weight: bold;
 	background: #cde;
@@ -193,6 +201,15 @@ p {
 .item_description {
 	padding: 6px;
 }
+.ui-state-highlight 
+{ 
+	height: 1.5em; line-height: 1.2em; 
+	background: #dda;
+	color: blue;
+	border-top: solid 1px black;
+	border-bottom: solid 1px black;
+}
+
 .item {
 	margin-top: 10px;
 	border: solid 1px #ddd;
@@ -232,3 +249,4 @@ a:hover {
 	height: 100%;
 	border-top: solid 1px #aa8;
 }
+

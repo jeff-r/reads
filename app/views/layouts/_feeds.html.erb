@@ -1,5 +1,5 @@
 <div id='all_feeds_list'>
-	<ul>
+	<ul class='sortable'>
 		<% if user_signed_in? %>
 			<% current_user.feeds.each do |feed| %>
 				<% if feed.feed_items.where(:read=>false).count > 0 %>
@@ -8,6 +8,9 @@
 					<li><%= link_to feed.title, url_for(:controller=>:feeds, :action=>:show, :id=>feed.id) %></li>
 				<% end %>
 			<% end %>
+			
+			<div id='nav_feed_trash'></div>
+			
 		<% end %>
 	</ul>
 </div>
