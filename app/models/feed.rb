@@ -1,5 +1,6 @@
 class Feed < ActiveRecord::Base
   has_many :feed_items
+  belongs_to :user
   
   def most_recent_item_time
     if feed_items.count == 0

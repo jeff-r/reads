@@ -5,7 +5,8 @@ $(function() {
   }
 
 	$('.mark_as_read_button').click(jr.onMarkAsRead);
-	$('a').attr('target', "_blank");
+	// $('a').attr('target', "_blank");
+	$("a[href^=http://]").attr('target', "_blank");
 });
 
 var jr = {};

@@ -1,4 +1,6 @@
 class FeedItemsController < ApplicationController
+  before_filter :authenticate_user!
+
   # GET /feed_items
   # GET /feed_items.xml
   def index

@@ -17,7 +17,7 @@
 	<p></p>
 <% else %>
 
-	<% @feed.feed_items.each do |item| %>
+	<% @feed.feed_items.where(:read=>false).order(:pub_date).each do |item| %>
 	<% itemclass = 'item' %>
 	<% if item.read %>
 		<% itemclass = 'item already_read' %>
@@ -26,6 +26,7 @@
 	<div class="<%= itemclass %>">
 		<div class='item_title'><a target="_blank" href="<%= item.link %>"><%= item.title %></a></div>
 		<div class='item_description'><%= item.description.html_safe %></div>
+		<% puts item.description %>
 		<p>Time: <%= item.pub_date %></p>
 		<div class='item_actions'>
 

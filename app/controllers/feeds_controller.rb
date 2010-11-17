@@ -1,8 +1,11 @@
 class FeedsController < ApplicationController
+  before_filter :authenticate_user!
+
   # GET /feeds
   # GET /feeds.xml
   def index
-    @feeds = Feed.all
+    # @feeds = Feed.where(:user_id=>current_user.id)
+    @feeds = current_user.feeds.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -14,7 +17,8 @@ class FeedsController < ApplicationController
   # GET /feeds/1.xml
   def show
     puts "********** feeds.show"
-    @feed = Feed.find(params[:id])
+    # @feed = Feed.find(params[:id])
+    @feed = current_user.feeds.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -26,6 +30,7 @@ class FeedsController < ApplicationController
   # GET /feeds/new.xml
   def new
     @feed = Feed.new
+    @feed.user_id = current_user.id
 
     respond_to do |format|
       format.html # new.html.erb
@@ -35,13 +40,15 @@ class FeedsController < ApplicationController
 
   # GET /feeds/1/edit
   def edit
-    @feed = Feed.find(params[:id])
+    # @feed = Feed.find(params[:id])
+    @feed = current_user.feeds.find(params[:id])
   end
 
   # POST /feeds
   # POST /feeds.xml
   def create
     @feed = Feed.new(params[:feed])
+    @feed.user_id = current_user.id
 
     respond_to do |format|
       if @feed.save
@@ -57,7 +64,8 @@ class FeedsController < ApplicationController
   # PUT /feeds/1
   # PUT /feeds/1.xml
   def update
-    @feed = Feed.find(params[:id])
+    # @feed = Feed.find(params[:id])
+    @feed = current_user.feeds.find(params[:id])
 
     respond_to do |format|
       if @feed.update_attributes(params[:feed])
@@ -73,8 +81,9 @@ class FeedsController < ApplicationController
   # DELETE /feeds/1
   # DELETE /feeds/1.xml
   def destroy
-    puts "in feeds.destroy"
-    @feed = Feed.find(params[:id])
+    # puts "in feeds.destroy"
+    # @feed = Feed.find(params[:id])
+    @feed = current_user.feeds.find(params[:id])
     @feed.destroy
 
     respond_to do |format|
