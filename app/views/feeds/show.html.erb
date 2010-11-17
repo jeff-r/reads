@@ -31,7 +31,7 @@
 
 			<%= form_tag(:feed_item, :method=>'put') do %>
 			<%= hidden_field_tag(:read_item_id, item.id) %>
-			<%= submit_tag 'Mark as read' %>
+			<%= submit_tag 'Mark as read', :class=>'mark_as_read_button', "data-itemid"=>item.id %>
 			<% end %>
 			<p>item.id: <%= item.id %></p>
 		</div>

@@ -136,13 +136,17 @@ class FeedItemsController < ApplicationController
       item = FeedItem.find(params[:read_item_id])
       item.read = true
       item.save
-      redirect_to url_for(:controller=>:feeds, :action=>:show, :id=>item.feed.id)
+      # redirect_to url_for(:controller=>:feeds, :action=>:show, :id=>item.feed.id)
+      respond_to do |format|
+        format.html { redirect_to(@feed_item, :notice => 'Feed item was successfully updated.') }
+        format.xml  { head :ok }
+      end
     else
       redirect_to url_for(:controller=>:feeds, :action=>:show, :id=>1)
     end
     
-    # @feed_item = FeedItem.find(params[:id])
-    # 
+    @feed_item = FeedItem.find(params[:id])
+    
     # respond_to do |format|
     #   if @feed_item.update_attributes(params[:feed_item])
     #     format.html { redirect_to(@feed_item, :notice => 'Feed item was successfully updated.') }
