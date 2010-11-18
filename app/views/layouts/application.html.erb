@@ -10,27 +10,34 @@
 
 	<div id='outerdiv'>
 		
-		<div id='navbox'>
-			<ul>
-				<li><a href='/'>home</a></li>
-				<li><a href='/feeds'>Feeds</a></li>
-				<li><a href='/feed_items'>Feed Items</a></li>
-			</ul>
-			
-			<%= render 'layouts/feeds' %>
-			
-		</div>
-		
-		
-		<div id='feedbox'>
-		</div>
+    <% if user_signed_in? %>
+      <div id='navbox'>
+        <ul>
+          <li><a href='/'>home</a></li>
+          <li><a href='/about'>About</a></li>
+          <li><a href='/users/sign_out'>Log out</a></li>
+        </ul>
+
+        <%= render 'layouts/feeds' %>
+
+      </div>
+      <div id='feedbox'>
+      </div>
+
+      <div id='contents'>
+        <p class="notice"><%= notice %></p>
+        <p class="alert"><%= alert %></p>
+        <%= yield %>
+      </div>
+    <% else %>
+      <div id='contents'>
+        <p><b>Reads</b> is a very simple RSS reader.<br /> <br /></p>
+        <%= yield %>
+      </div>
+    <% end %>
 
 
-		<div id='contents'>
-		  <p class="notice"><%= notice %></p>
-		  <p class="alert"><%= alert %></p>
-			<%= yield %>
-		</div>
+
 	</div>
 
 

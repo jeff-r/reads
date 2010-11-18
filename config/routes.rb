@@ -11,6 +11,7 @@ Reads::Application.routes.draw do
   
   match '/refresh_feed/:feed_id' => 'feed_items#refresh', :as => 'refresh'
   match '/delete_all_items' => 'feed_items#delete_all_items', :as => 'delete_all_items'
+  match '/about' =>'feeds#about', :as=>'about'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -49,17 +49,8 @@ class FeedItemsController < ApplicationController
     # channel.keys: ["generator", "title", "link", "language", "webMaster", "copyright", "pubDate", "lastBuildDate", "image", "item", "description"]
     
     
-    # puts "channel.keys: #{channel.keys.inspect}" 
-    # puts "channel['pubDate']: #{channel['pubDate'].inspect}" 
-    
-    # feed = Feed.new
-    # feed.title = channel['title']
-    # feed.url = channel['link']
-    # puts "feed: #{feed.inspect}" 
-    
     items = channel['item']
     first = items[0]
-    # puts "first.keys: #{first.keys.inspect}" 
     # items is an array of item hashes. Each item has these keys:
     # items[n].keys = ["title", "link", "guid", "category", "pubDate", "description"]
     

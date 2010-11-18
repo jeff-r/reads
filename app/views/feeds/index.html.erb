@@ -1,20 +1,24 @@
-<h1>Listing feeds</h1>
-
-<table>
-  <tr>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @feeds.each do |feed| %>
-  <tr>
-    <td><%= link_to feed.title, feed %></td>
-    <td><%= link_to 'Edit', edit_feed_path(feed) %></td>
-    <td><%= link_to 'Delete', feed, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
+<% if @feeds.count == 0 %>
+  <p>You have no feeds yet.</p>
+<% else %>
+  <h1>Your feeds:</h1>
+  
+  <table>
+    <tr>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  
+  <% @feeds.each do |feed| %>
+    <tr>
+      <td><%= link_to feed.title, feed %></td>
+      <td><%= link_to '(Edit)', edit_feed_path(feed) %></td>
+      <td><%= link_to '(Delete)', feed, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+  </table>
 <% end %>
-</table>
 
 <br />
 

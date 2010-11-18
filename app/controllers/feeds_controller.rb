@@ -65,7 +65,8 @@ class FeedsController < ApplicationController
 
     respond_to do |format|
       if @feed.save
-        format.html { redirect_to(@feed, :notice => 'Feed was successfully created.') }
+        format.html { redirect_to(url_for(:controller=>'feed_items', :action=>'refresh', :feed_id=>@feed.id)) }
+        # format.html { redirect_to(@feed, :notice => 'Feed was successfully created.') }
         format.xml  { render :xml => @feed, :status => :created, :location => @feed }
       else
         format.html { render :action => "new" }
