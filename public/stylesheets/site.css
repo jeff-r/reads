@@ -32,7 +32,6 @@ This forces scrollbars. If we don't do this, the page jumps 8 pixels to the left
 scrollbars appear -- which makes for really ugly transitions. 
 */
 html {
-/*	overflow: scroll;*/
 }
 
 body {
@@ -42,6 +41,7 @@ body {
 	margin: 0;
 	background: #eee;
 	color: #444;
+  padding: 10px;
 }
 h1 {
 	padding-left: 6px;
@@ -64,7 +64,7 @@ p {
 	width: 808px;
 	margin-left: 220px;
 	margin-right: auto;
-	margin-top: 5px;
+	margin-top: 0px;
 	margin-bottom: 0;
 	border: 0;
 	padding: 0px;
@@ -81,7 +81,6 @@ p {
 }
 
 #navbox li {
-/*	layout: inline;*/
 	list-style-type: none;
 	margin-left: 10px;
 	padding-left: 0;
