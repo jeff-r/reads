@@ -4,7 +4,6 @@ class FeedsController < ApplicationController
   # GET /feeds
   # GET /feeds.xml
   def index
-    # @feeds = Feed.where(:user_id=>current_user.id)
     @feeds = current_user.feeds.all
     
     # sort_feeds
@@ -30,8 +29,14 @@ class FeedsController < ApplicationController
   # GET /feeds/1.xml
   def show
     puts "********** feeds.show"
-    # @feed = Feed.find(params[:id])
     @feed = current_user.feeds.find(params[:id])
+    if params.has_key? :thread_id
+      thread_id = params[:thread_id]
+      thread = FeedItem.find(thread_id)
+      @feed.subfeed_by_title thread.title
+    end
+
+    logger.debug "log: @feed: " + @feed.inspect
 
     respond_to do |format|
       format.html # show.html.erb

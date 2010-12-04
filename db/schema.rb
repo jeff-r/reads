@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101117210857) do
+ActiveRecord::Schema.define(:version => 20101203230002) do
 
   create_table "feed_items", :force => true do |t|
     t.string   "title"
@@ -21,6 +21,8 @@ ActiveRecord::Schema.define(:version => 20101117210857) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.datetime "pub_date"
+    t.integer  "num_threadentries"
+    t.boolean  "ignore_thread"
   end
 
   create_table "feeds", :force => true do |t|

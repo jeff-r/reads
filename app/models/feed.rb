@@ -8,4 +8,59 @@ class Feed < ActiveRecord::Base
     end
     lasttime = feed_items.order("pub_date").last.pub_date
   end
+
+  def top_level_items
+      if defined? @item_title
+        items = feed_items.where({:read=>false, :title=>@item_title}).order(:pub_date)
+        # logger.debug "log: items: " + items.inspect
+        items
+      else
+        items = feed_items.where(:read=>false).order(:pub_date)
+
+      # Loop through the items, counting the thread titles, and collecting the top-level elements
+      top_elements = []
+      counts = {}
+      items.each do |item| 
+        title = item.title
+        logger.debug "log:          " + title
+        if not counts.has_key? title
+          logger.debug "log: adding " + title
+          top_elements << item
+          counts[title] = 1
+        else
+          counts[title] += 1
+        end
+      end
+      logger.debug "log: count: " + top_elements.count.to_s
+      # now loop through again, setting the counts
+      top_elements.each do |element|
+        element.num_threadentries = counts[element.title]
+      end
+
+
+      logger.debug "log: count: " + top_elements.count.to_s
+
+      # and return the top level elements
+      top_elements
+      end
+  end
+
+  def subfeed_by_title title
+    @item_title = title
+    # items = top_level_items.where(:title=>title)
+    # # items = feed_items.where(:title=>title)
+    # items.each do |item|
+    #   item.num_threadentries = 0
+    # end
+    # @subfeed = items
+  end
+
+  def subfeed_or_feed
+    feed_items
+    # if defined? @subfeed
+    #   @subfeed
+    # else
+    #   feed_items
+    # end
+  end
 end
