@@ -40,7 +40,7 @@ body {
 	font-size: 13px;
 	margin: 0;
 	background: #eee;
-	color: #444;
+	color: #222;
   padding: 10px;
 }
 h1 {
@@ -198,6 +198,7 @@ p {
 	padding: 6px;
 }
 .item_description {
+  clear: both;
 	padding: 6px;
 }
 .ui-state-highlight 
@@ -233,6 +234,16 @@ a:hover {
 /*	color: #000;*/
 }
 
+
+.item_title a{
+  color: #444;
+}
+
+.item_title a:hover {
+	background: #cde;
+  color: black;
+}
+
 #messages_box {
 	margin-top: 10px;
 }
@@ -248,4 +259,7 @@ a:hover {
 	height: 100%;
 	border-top: solid 1px #aa8;
 }
-
+.subitemslink {
+  float: right;
+  display: inline;
+}

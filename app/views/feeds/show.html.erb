@@ -28,7 +28,9 @@
     <div class='item_title'>
       <a target="_blank" href="<%= item.link %>"><%= item.title %></a>
       <% if item.has_sub_items? %>
-      <%= link_to "#{item.num_threadentries} entries", subfeed_path(@feed, item)  %> 
+      <div class='subitemslink'>
+        <%= link_to "#{item.num_threadentries} entries", subfeed_path(@feed, item)  %> 
+      </div>
       <% end %>
     </div>
 		<div class='item_description'><%= item.description.html_safe %></div>
@@ -46,5 +48,4 @@
 
 
 <%= link_to 'Edit', edit_feed_path(@feed) %> |
-<%= link_to 'Back', feeds_path %>
 <%= link_to 'Delete feed', url_for(:controller=>:feeds, :id=>@feed.id, :action=>'destroy'), :method=>'delete' %>

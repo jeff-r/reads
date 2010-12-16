@@ -2,8 +2,8 @@
 #   gem install sqlite3-ruby (not necessary on OS X Leopard)
 development:
   adapter: postgresql
-  database: railsreads
-  username: railsuser
+  database: readsdb
+  username: readsuser
   password: calvin
   host: localhost
   encoding: UTF8
