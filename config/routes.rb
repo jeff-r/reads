@@ -1,4 +1,7 @@
 Reads::Application.routes.draw do
+  match '/auth/:provider/callback' => 'authentications#create'
+  resources :authentications
+
   resources :feed_items
   resources :feeds do
     resources :feed_items
