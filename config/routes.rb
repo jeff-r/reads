@@ -1,4 +1,6 @@
 Reads::Application.routes.draw do
+  root :to => "feeds#index"  
+
   match '/auth/:provider/callback' => 'authentications#create'
   resources :authentications
 
@@ -8,9 +10,8 @@ Reads::Application.routes.draw do
   end
   
   resources :reader_users
-  devise_for :users
+  devise_for :users, :controllers => { :registrations => 'registrations' }
   
-  root :to => "feeds#index"  
   
   match '/refresh_feed/:feed_id' => 'feed_items#refresh', :as => 'refresh'
   match '/delete_all_items/:feed_id' => 'feed_items#delete_all_items', :as => 'delete_all_items'

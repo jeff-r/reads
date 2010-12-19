@@ -13,9 +13,11 @@
     <% if user_signed_in? %>
       <div id='navbox'>
         <ul>
-          <li><a href='/'>home</a></li>
+          <li><a href='/'>Site home</a></li>
+          <li><a href='<%= root_path %>'>Reads home</a></li>
           <li><a href='/about'>About</a></li>
           <li><a href='/users/sign_out'>Log out</a></li>
+          <li><a href='/reads/authentications'>Authentication methods</a></li>
         </ul>
 
         <%= render 'layouts/feeds' %>
@@ -32,6 +34,7 @@
     <% else %>
       <div id='contents'>
         <p><b>Reads</b> is a very simple RSS reader.<br /> <br /></p>
+        <p>Sign in using <a href='/reads/auth/twitter'>twitter</a></p>
         <%= yield %>
       </div>
     <% end %>
