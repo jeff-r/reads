@@ -33,7 +33,7 @@
       </div>
       <% end %>
     </div>
-		<div class='item_description'><%= item.description.html_safe %></div>
+		<div class='item_description'><%= item.description.html_safe if not item.description.nil? %></div>
     <p><%= "Posted #{time_ago_in_words(item.pub_date)} ago" %></p>
 		<div class='item_actions'>
 

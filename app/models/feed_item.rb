@@ -42,7 +42,7 @@ class FeedItem < ActiveRecord::Base
       unless exists? :guid => entry.id
         create!(
           :title         => entry.title,
-          :description   => entry.summary,
+          :description   => entry.summary || entry.content,
           :link          => entry.url,
           :pub_date      => entry.published,
           :guid          => entry.id,
