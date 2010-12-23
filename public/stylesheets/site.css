@@ -40,6 +40,7 @@ body {
 	font-size: 13px;
 	margin: 0;
 	background: #eee;
+	background: #f3f8f0;
 	color: #222;
   padding: 10px;
 }
@@ -192,11 +193,23 @@ p {
 	background: #ddd;
 	border: solid 1px #000;
 }
-.item_title {
-	font-weight: bold;
-	background: #cde;
-	padding: 6px;
+#feed_title_bar {
+  font-weight: bold;
+  background: #3E3022;
+  color: #ddd;
+  padding: 4px;
 }
+#feed_title_bar a {
+  color: #ddd;
+}
+#feed_title_bar a:hover {
+  color: white;
+}
+
+.feed_command {
+  float: right;
+}
+
 .clear,
 .item_description {
   clear: both;
@@ -241,8 +254,17 @@ a:hover {
 }
 
 .item_title a:hover {
+  color: white;
+}
+.item_title {
+	font-weight: bold;
 	background: #cde;
-  color: black;
+  background: #2b3a50;
+	padding: 6px;
+  color: white;
+}
+.item_title a {
+  color: #ddd;
 }
 
 #messages_box {
@@ -256,7 +278,6 @@ a:hover {
 	padding: 0;
 	padding-top: 5px;
 	width: 100%;
-	background: #ffe;
 	height: 100%;
 	border-top: solid 1px #aa8;
 }

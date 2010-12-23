@@ -1,22 +1,23 @@
 <p id="notice"><%= notice %></p>
 
 <div id='feed_header'>
-	<p>
-		<a href='<%= @feed.url %>'><%= @feed.title %></a>: <%= @feed.feed_items.count %> items.
-		Last updated: <%= time_ago_in_words(@feed.updated_at) %> ago.
-		</p>
-	<p><%= link_to 'Refresh the feed', refresh_path(@feed) %>
---		<%= link_to 'Delete all feed items', delete_all_items_path(@feed) %>
-		
-		 </p>
-	<p>Most recent item time: <%= @feed.most_recent_item_time %></p>
-	
+  <div id='feed_title_bar'>
+    <a href='<%= @feed.url %>'><%= @feed.title %></a>
+    <%= link_to 'Refresh the feed', refresh_path(@feed), :class => 'feed_command' %>
+  </div>
+
+  <p> Last updated: <%= time_ago_in_words(@feed.updated_at) %> ago. 
+  Most recent item: <%= @feed.most_recent_item_time %>
+  </p>
+
 </div>
 
 <% if @feed.feed_items.count == 0 %>
 	<p>No items in the feed. Sorry.</p>
 <% else %>
-	<p>Num items: <%= @feed.feed_items.count.to_s %></p>
+	<p>Num items: <%= @feed.feed_items.count.to_s %>
+  <%= link_to '(Delete all feed items)', delete_all_items_path(@feed), :class => 'feed_command' %>
+  </p>
 
 	<% @feed.feed_items.each do |item| %>
 	<% itemclass = 'item' %>
