@@ -35,6 +35,16 @@ class FeedItemsController < ApplicationController
     
     puts "@feed.url: #{@feed.url.inspect}" 
     url = URI.parse @feed.url
+    FeedItem.update_from_feed @feed
+    redirect_to url_for(:controller=>:feeds, :action=>:show, :id=>@feed.id)
+  end
+
+  def old_refresh
+    @feed = Feed.find(params[:feed_id])
+    # @feed_items = FeedItem.all
+    
+    puts "@feed.url: #{@feed.url.inspect}" 
+    url = URI.parse @feed.url
     @theresponse = Net::HTTP.get_response(url)
     # puts "@theresponse: #{@theresponse.inspect}" 
     @theresponse = @theresponse.body

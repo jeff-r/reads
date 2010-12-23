@@ -15,9 +15,9 @@
         <ul>
           <li><a href='/'>Site home</a></li>
           <li><a href='<%= root_path %>'>Reads home</a></li>
-          <li><a href='/about'>About</a></li>
-          <li><a href='/users/sign_out'>Log out</a></li>
-          <li><a href='/reads/authentications'>Authentication methods</a></li>
+          <li><a href='<%= root_path %>about'>About</a></li>
+          <li><a href='<%= root_path %>users/sign_out'>Log out</a></li>
+          <li><a href='<%= authentications_path %>'>Authentication methods</a></li>
         </ul>
 
         <%= render 'layouts/feeds' %>
@@ -34,7 +34,9 @@
     <% else %>
       <div id='contents'>
         <p><b>Reads</b> is a very simple RSS reader.<br /> <br /></p>
-        <p>Sign in using <a href='/reads/auth/twitter'>twitter</a></p>
+        <p>Sign in using <a href='<%= root_path %>auth/twitter'>twitter</a></p>
+        <p>Or sign in using <a href='<%= root_path %>auth/facebook'>Facebook</a></p>
+        <p>Or, with <a href='<%= authentications_path %>'>another service</a></p>
         <%= yield %>
       </div>
     <% end %>

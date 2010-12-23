@@ -1,7 +1,7 @@
 Reads::Application.routes.draw do
   root :to => "feeds#index"  
 
-  match '/auth/:provider/callback' => 'authentications#create'
+  match '/auth/:provider/callback' => 'authentications#create', :as => 'auth'
   resources :authentications
 
   resources :feed_items

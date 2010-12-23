@@ -40,7 +40,8 @@ class AuthenticationsController < ApplicationController
     if authentication 
       flash[:notice] = "Signed in successfully."
       sign_in_and_redirect(:user, authentication.user)
-    elseif current_user
+    elsif current_user
+      logger.error ("omniauth: " + omniauth.inspect)
       current_user.authentications.create(:provider => omniauth['provider'], :uid=>omniauth['uid'])
       flash[:notice] = "Authentication successful."
       redirect_to authentications_url
