@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  title: MyString
+  url: MyString
+  trail_id: 1
+  sort_index: 1
+
+two:
+  title: MyString
+  url: MyString
+  trail_id: 1
+  sort_index: 1

@@ -1,0 +1,156 @@
+/* Trying out colors swiped from http://www.webtypography.net  */
+
+
+body {
+  background: #eee;
+  background: #fff;
+  /*
+   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+   */
+   font-weight: 300;
+}
+
+#outerdiv {
+  border: solid 1px #888;
+  width: 930px;
+  margin: 0 auto;
+  background: #fff;
+  background: #fff8e5;
+  background: #fffbf2;
+  background: #fff9ea;
+  padding: 0;
+  clear: both;
+}
+
+.rightnav {
+  float: right;
+  margin-left: 4px;
+}
+
+#navdiv li {
+  display: inline;
+  margin: 0;
+  color: white;
+  padding: 4px;
+}
+
+#navdiv ol {
+  background: #400300;
+  margin: 0;
+  padding: 4px 8px;
+}
+#navdiv a {
+  color: white;
+  color: #ccc;
+}
+#navdiv a:hover {
+  color: white;
+}
+.column {
+  list-style-type: none;
+  margin: 0px;
+  padding: 0px;
+  float: left;
+  width: 230px;
+}
+.traildiv {
+  border: solid 1px #888;
+  margin: 8px;
+  width: 214px;
+}
+.currenttrail {
+  background: #eef;
+  background: #ffefc4;
+}
+
+.trailtitlebar {
+  background: #400300;
+  padding: 4px;
+  height: 1.4em;
+}
+.trailtitle {
+  width: 140px;
+  height: 1.5em;
+  overflow:hidden;
+  float:left;
+  padding-right: 0;
+  margin-right: 0;
+}
+.titlecommand:first {
+  float: right; 
+  margin-left: 0px;
+  background: none;
+}
+
+.titlecommand {
+  float: right; 
+  margin-left: 8px;
+  background: none;
+}
+
+.traillinks {
+  padding: 4px;
+  clear: both;
+}
+.linkurl {
+  padding: 0;
+}
+
+.cleardiv {
+  clear: both;
+}
+
+
+a {
+  text-decoration: none;
+  color: #666;
+  background: none;
+}
+a:hover {
+  background: none;
+  color: #000;
+}
+a:visited {
+}
+
+.trailtitlebar a {
+  font-weight: bold;
+  color: #ccc;
+  /*
+  font-family: garamond, 'times new roman', serif
+  */
+}
+
+.trailtitlebar a:hover {
+  color: white;
+  background: #400300;
+  background: none;
+}
+
+
+
+.ui-timepicker-div .ui-widget-header{ margin-bottom: 8px; }
+.ui-timepicker-div dl{ text-align: left; }
+.ui-timepicker-div dl dt{ height: 25px; }
+.ui-timepicker-div dl dd{ margin: -25px 0 10px 65px; }
+.ui-timepicker-div td { font-size: 90%; }
+
+/*
+	.column { width: 170px; float: left; padding-bottom: 100px; }
+	.portlet { margin: 0 1em 1em 0; }
+	.portlet-header { margin: 0.3em; padding-bottom: 4px; padding-left: 0.2em; }
+	.portlet-header .ui-icon { float: right; }
+	.portlet-content { padding: 0.4em; }
+	.ui-sortable-placeholder { border: 1px dotted black; visibility: visible !important; height: 50px !important; }
+	.ui-sortable-placeholder * { visibility: hidden; }
+
+.column {
+  width: 400px;
+  border: solid 1px black;
+  float:left;
+}
+.portlet {
+  width: 180px;
+  float: left;
+}
+*/

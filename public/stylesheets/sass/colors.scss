@@ -1,0 +1,59 @@
+$bgcolor:  teal;
+$lightyellow: #fff9ea;
+$darkred: #400300;
+$lightblue: #EAEFF6;
+
+$titlebrown: #a8611e;
+$titlebrown: darken(#A8611e, 20%);
+$titlebrown: desaturate($titlebrown, 40%);
+
+$bgcolor: $lightyellow;
+$bgcolor: $lightblue;
+$bgcolor:  #eef5e9;
+$titlecolor: $darkred;
+
+
+$offset : 0deg;
+$navlighten : 3%;
+
+$traillighten : 5%;
+$bglighten: 2%;
+$titledarkenpercent: 75%;
+$trailtitledarkenpercent: 70%;
+
+$titlecolor: adjust_hue($darkred, $offset);
+$titlecolor: darken($lightblue, $titledarkenpercent);
+
+$bgcolor: adjust_hue($bgcolor, $offset);
+$bgcolor: lighten($bgcolor, $bglighten);
+
+$toplinkbg: $titlecolor;
+$trailbg: lighten($bgcolor, $traillighten);
+
+$trailtitlebg: darken($lightblue, $trailtitledarkenpercent);
+$trailtitlebg: desaturate($trailtitlebg, 10%);
+
+body {
+  background: $bgcolor;
+}
+
+
+#outerdiv {
+  background: darken($bgcolor, 5%);
+}
+
+.trailtitle,
+.trailtitlebar {
+  background: $trailtitlebg;
+}
+
+#navdiv ol {
+  background: $toplinkbg;
+  background: $titlebrown;
+}
+.traillinks {
+  background: $trailbg;
+}
+.currenttrail {
+  background: lighten($toplinkbg, 70%);
+}

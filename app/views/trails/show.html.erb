@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @trail.title %>
+</p>
+
+<p>
+  <b>Sort index:</b>
+  <%= @trail.sort_index %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%= @trail.user_id %>
+</p>
+
+<p>
+  <b>Column:</b>
+  <%= @trail.column_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_trail_path(@trail) %> |
+<%= link_to 'Back', trails_path %>

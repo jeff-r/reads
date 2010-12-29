@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
   has_many :user
   has_many :authentications
+  has_many :trails
+  has_one  :setting
 
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable, :lockable and :timeoutable
@@ -10,6 +12,14 @@ class User < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me
   
+  def current_trail
+    trails.find(setting.current_trail_id)
+  end
+
+  def sorted_trails
+    trails.order("column_id, sort_index")
+  end
+
   
   # This shouldn't be necessary. 
   def feeds

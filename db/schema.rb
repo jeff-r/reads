@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101222230449) do
+ActiveRecord::Schema.define(:version => 20101229010922) do
 
   create_table "authentications", :force => true do |t|
     t.integer  "user_id"
@@ -43,9 +43,34 @@ ActiveRecord::Schema.define(:version => 20101222230449) do
     t.integer  "sort_order"
   end
 
+  create_table "links", :force => true do |t|
+    t.string   "title"
+    t.string   "url"
+    t.integer  "trail_id"
+    t.integer  "sort_index"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "reader_users", :force => true do |t|
     t.string   "email"
     t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "settings", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "current_trail_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "trails", :force => true do |t|
+    t.string   "title"
+    t.integer  "sort_index"
+    t.integer  "user_id"
+    t.integer  "column_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

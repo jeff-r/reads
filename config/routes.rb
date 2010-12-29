@@ -1,4 +1,9 @@
 Reads::Application.routes.draw do
+  resources :settings
+
+
+  resources :links
+
   root :to => "feeds#index"  
 
   match '/auth/:provider/callback' => 'authentications#create', :as => 'auth'
@@ -18,4 +23,8 @@ Reads::Application.routes.draw do
   match '/about' =>'feeds#about', :as=>'about'
   match '/subfeed/:id/:thread_id' => 'feeds#show', :as => 'subfeed'
 
+  match '/trails/sortorder' => 'trails#sortorder', :via => [:post, :get]
+  match '/trails/setcurrent/:trailid' => 'trails#setcurrent', :via => [:post, :get], :as => 'setcurrent'
+  
+  resources :trails
 end

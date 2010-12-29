@@ -1,0 +1,19 @@
+body {
+  background: #f3f8f0; }
+
+#outerdiv {
+  background: #e6f0de; }
+
+.trailtitle,
+.trailtitlebar {
+  background: #2b3a50; }
+
+#navdiv ol {
+  background: #1d2e44;
+  background: #3e3022; }
+
+.traillinks {
+  background: white; }
+
+.currenttrail {
+  background: #d8e1ee; }

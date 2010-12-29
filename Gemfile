@@ -14,5 +14,6 @@ group :after_initialize do
 end
 
 gem 'devise'
-gem 'pg'
+# gem 'pg'
 gem 'omniauth'
+gem 'haml'
