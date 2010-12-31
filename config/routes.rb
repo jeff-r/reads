@@ -2,6 +2,7 @@ Reads::Application.routes.draw do
   resources :settings
 
 
+  match '/links/sortorder' => 'links#sortorder', :via => [:post, :get]
   resources :links
 
   root :to => "feeds#index"  
@@ -26,5 +27,6 @@ Reads::Application.routes.draw do
   match '/trails/sortorder' => 'trails#sortorder', :via => [:post, :get]
   match '/trails/setcurrent/:trailid' => 'trails#setcurrent', :via => [:post, :get], :as => 'setcurrent'
   
+
   resources :trails
 end

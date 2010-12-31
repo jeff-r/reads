@@ -83,4 +83,20 @@ class LinksController < ApplicationController
       format.xml  { head :ok }
     end
   end
+
+
+  def sortorder
+    logger.error "In sortorder"
+
+    trail_id = params[:trail_id]
+    indexes  = params[:indexes]
+
+    trail = Trail.find(trail_id)
+    trail.gather_links indexes
+
+    logger.error "trail_id: " + trail_id.inspect
+    logger.error "indexes: " + indexes.inspect
+    render :xml => trail_id
+    # redirect_to(trails_url)
+  end
 end

@@ -19,7 +19,7 @@
     <td><%= link.sort_index %></td>
     <td><%= link_to 'Show', link %></td>
     <td><%= link_to 'Edit', edit_link_path(link) %></td>
-    <td><%= link_to 'Destroy', link, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= button_to 'Destroy', link, :confirm => 'Are you sure?', :method => :delete, :class => 'remote-delete' %></td>
   </tr>
 <% end %>
 </table>
