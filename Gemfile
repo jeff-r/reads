@@ -8,6 +8,8 @@ gem 'sqlite3-ruby', :require => 'sqlite3'
 # gem 'pauldix-feedzirra'
 # See http://tmonrails.blogspot.com/2010/07/feedzirra-on-rails-3.html
 gem 'nokogiri'
+gem 'RedCloth'
+
 group :after_initialize do
     # gem "feedzirra", :git => "git://github.com/chrismsnz/feedzirra.git"
   gem 'feedzirra'

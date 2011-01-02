@@ -16,7 +16,7 @@
     <div class='traildiv'>
       <div class='trailtitlebar'>
         <div class='trailtitle' data-trailid='<%= trail.id %>'>
-          <%= link_to trail.title, edit_trail_path(trail) %>
+          <%= link_to trail.title, trail_path(trail) %>
         </div>
           <%= link_to "current", setcurrent_path(trail), :via => :post, :class => 'trailtitlecommand' %>
       </div>

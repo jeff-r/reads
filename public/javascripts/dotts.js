@@ -36,6 +36,7 @@ $(function() {
     //$.post(this.href, { _method: 'delete' }, null, "script");
     console.log($(this).parent().parent().attr('action'));
   });
+
 });
 
 // var jr = {};

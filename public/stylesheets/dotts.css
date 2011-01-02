@@ -137,7 +137,19 @@ a:visited {
   background: none;
 }
 
+#trailnotes {
+  border: solid 1px #888;
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
 
+.editbox {
+  background: #eee;
+}
+
+#item_footer {
+  float: right;
+}
 
 .ui-timepicker-div .ui-widget-header{ margin-bottom: 8px; }
 .ui-timepicker-div dl{ text-align: left; }
