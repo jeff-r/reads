@@ -21,7 +21,7 @@ $(function() {
       });
   // format '2010-12-02 07:53'
   $('.deletelink').click(jr.ondeleteclick);
-  $('.titlecommand').click(jr.onTitleCommandClick);
+  $('.trailtitlecommand').click(jr.onTitleCommandClick);
 	$("a[href^=http://]").attr('target', "_blank");
   
   //$('a.remote-delete').click(function() {

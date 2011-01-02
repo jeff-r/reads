@@ -4,6 +4,10 @@
 <% index = 0 %>
 
 <div id='all_trails_div'>
+  <div id='feed_title_bar'>
+    <%= link_to 'All Links', links_path %>
+    <%= link_to "New Trail", new_trail_path, :class => 'titlecommand' %>
+  </div>
   <% index = 0 %>
   <% @cols.each do |col|  %>
   <div class="column" style='min-height: 13em;' data-column='<%= index %>'>
@@ -14,7 +18,7 @@
         <div class='trailtitle' data-trailid='<%= trail.id %>'>
           <%= link_to trail.title, edit_trail_path(trail) %>
         </div>
-          <%= link_to "current", setcurrent_path(trail), :via => :post, :class => 'titlecommand' %>
+          <%= link_to "current", setcurrent_path(trail), :via => :post, :class => 'trailtitlecommand' %>
       </div>
       <% linkclass = 'traillinks' %>
       <% if trail.id == current_user.setting.current_trail_id %>
@@ -23,13 +27,14 @@
 
       <div class='<%= linkclass %>'>
         <% trail.links.order('sort_index asc').each do |link| %>
-        <div class='linkurl' data-id='<%= link.id %>'><a href='<%= link.url %>'><%= link.title %></a></div>
+        <div class='linkurl' data-id='<%= link.id %>'><a class='linkclass' href='<%= link.url %>'><%= link.title %></a></div>
         <% end %>
       </div>
     </div>
     <% end %>
   </div>
   <% end %>
+
 </div>
 
 <br class='cleardiv' />

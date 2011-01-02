@@ -2,6 +2,14 @@ class Feed < ActiveRecord::Base
   has_many :feed_items
   belongs_to :user
   
+  def num_unread_posts
+    # feed_items.where(:read => false).count
+    # All feed items are initialized with :read => false, so we don't need to check for null
+    # But we've got some null values in the db.
+    # Once they are marked as read, we can use the above line rather than the next
+    FeedItem.where("feed_id = #{id} and (read is 'false' or read is null)").count
+  end
+
   def most_recent_item_time
     if feed_items.count == 0
       return DateTime.parse "01-01-1970"

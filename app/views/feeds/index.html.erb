@@ -1,8 +1,11 @@
 <% if @feeds.count == 0 %>
   <p>You have no feeds yet.</p>
 <% else %>
-  <h1>Your feeds:</h1>
-  
+  <div id='feed_title_bar'>
+    Your feeds
+    <%= link_to "New feed", new_feed_path, :class => 'titlecommand' %>
+  </div>
+
   <table>
     <tr>
       <th></th>
@@ -20,6 +23,3 @@
   </table>
 <% end %>
 
-<br />
-
-<%= link_to 'New Feed', new_feed_path %>

@@ -2,7 +2,7 @@
 <html>
 <head>
   <title>Reads reads feeds</title>
-  <%= stylesheet_link_tag 'dotts', 'scaffold.css', 'site.css', 'colors.css' %>
+  <%= stylesheet_link_tag 'scaffold.css', 'dotts', 'site.css', 'colors.css' %>
   <%= javascript_include_tag "jquery/js/jquery-1.4.2.min", 'jquery/js/jquery-ui-1.8.5.custom.min', "reads", "dotts", 'jquery-ui-timepicker-addon' %>
   <%= csrf_meta_tag %>
 </head>
@@ -13,12 +13,12 @@
     <% if user_signed_in? %>
       <div id='navbox'>
         <ul>
-          <li><a href='/'>Site home</a></li>
           <li><a href='<%= root_path %>trails'>Trails</a></li>
           <li><a href='<%= root_path %>'>Reads</a></li>
+          <li>&nbsp;</li>
+          <li><a href='/'>Site home</a></li>
           <li><a href='<%= root_path %>about'>About</a></li>
           <li><a href='<%= root_path %>users/sign_out'>Log out</a></li>
-          <li><a href='<%= root_path %>links'>links</a></li>
           
           <li><a href='<%= authentications_path %>'>Authentication methods</a></li>
         </ul>

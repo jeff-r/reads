@@ -15,10 +15,6 @@
 <% if @feed.feed_items.count == 0 %>
 	<p>No items in the feed. Sorry.</p>
 <% else %>
-	<p>Num items: <%= @feed.feed_items.count.to_s %>
-  <%= link_to '(Delete all feed items)', delete_all_items_path(@feed), :class => 'feed_command' %>
-  </p>
-
 	<% @feed.feed_items.each do |item| %>
 	<% itemclass = 'item' %>
 	<% if item.read %>

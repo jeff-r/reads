@@ -46,6 +46,7 @@ class FeedItem < ActiveRecord::Base
           :link          => entry.url,
           :pub_date      => entry.published,
           :guid          => entry.id,
+          :read          => false,
           :feed_id       => feed_id
         )
       end

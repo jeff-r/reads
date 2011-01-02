@@ -17,3 +17,26 @@ body {
 
 .currenttrail {
   background: #d8e1ee; }
+
+#all_trails_title {
+  background: #3e3022; }
+
+.feed_title_bar a,
+.feed_title_bar a:visited,
+.trailtitle a,
+.trailtitle a:visited,
+a.trailtitlecommand,
+a.trailtitlecommand:visited,
+a.titlecommand,
+a.titlecommand:visited,
+#all_trails_title a,
+#all_trails_title a:visited {
+  color: #ccc; }
+
+.feed_title_bar a:hover,
+.trailtitle a:hover,
+a.trailtitlecommand:hover,
+a.titlecommand:hover,
+#all_trails_title a:hover,
+#all_trails_title a:hover {
+  color: white; }

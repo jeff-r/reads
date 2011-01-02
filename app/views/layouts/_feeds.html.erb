@@ -3,10 +3,14 @@
 		<% if user_signed_in? %>
       <li><b>Your feeds:</b></li>
 			<% current_user.feeds.each do |feed| %>
-				<% if feed.feed_items.where(:read=>false).count > 0 %>
-					<li><b><%= link_to feed.title, url_for(:controller=>:feeds, :action=>:show, :id=>feed.id) %></b></li>
+				<% if feed.num_unread_posts > 0 %>
+        <li><b><%= link_to feed.title, url_for(:controller=>:feeds, :action=>:show, :id=>feed.id) %>
+        </b>
+        - <%= feed.num_unread_posts %> unread
+        </li>
 				<% else %>
-					<li><%= link_to feed.title, url_for(:controller=>:feeds, :action=>:show, :id=>feed.id) %></li>
+        <li><%= link_to feed.title, url_for(:controller=>:feeds, :action=>:show, :id=>feed.id) %>
+        </li>
 				<% end %>
 			<% end %>
 			
