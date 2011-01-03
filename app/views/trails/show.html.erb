@@ -5,6 +5,12 @@
 
 <% if not @trail.notes.nil? %>
   <div id='trailnotes'>
+    <%= sanitize(textilize(@trail.notes)) %>
+  </div>
+<% end %>
+
+<% if not @trail.notes.nil? %>
+  <div id='trailnotes'>
     <%= RedCloth.new(@trail.notes).to_html.html_safe %>
   </div>
 <% end %>
@@ -21,7 +27,7 @@ Links:
 
 <div id='item_footer'>
 <%= link_to 'Edit', edit_trail_path(@trail) %> |
-<%= link_to 'Back', trails_path %>
+<%= link_to 'All trails', trails_path %>
 </div>
 
 <div class='cleardiv'></div>

@@ -7,7 +7,7 @@ class Feed < ActiveRecord::Base
     # All feed items are initialized with :read => false, so we don't need to check for null
     # But we've got some null values in the db.
     # Once they are marked as read, we can use the above line rather than the next
-    FeedItem.where("feed_id = #{id} and (read is 'false' or read is null)").count
+    FeedItem.where("feed_id = #{id} and (read is 'f' or read is null)").count
   end
 
   def most_recent_item_time

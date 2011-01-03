@@ -23,14 +23,14 @@
 		
 	<div class="<%= itemclass %>">
     <div class='item_title'>
-      <a target="_blank" href="<%= item.link %>"><%= item.title %></a>
+      <a target="_blank" href="<%= sanitize(item.link) %>"><%= sanitize(item.title) %></a>
       <% if item.has_sub_items? %>
       <div class='subitemslink'>
         <%= link_to "#{item.num_threadentries} entries", subfeed_path(@feed, item)  %> 
       </div>
       <% end %>
     </div>
-		<div class='item_description'><%= item.description.html_safe if not item.description.nil? %></div>
+		<div class='item_description'><%= sanitize(item.description) if not item.description.nil? %></div>
     <p><%= "Posted #{time_ago_in_words(item.pub_date)} ago" %></p>
 		<div class='item_actions'>
 
