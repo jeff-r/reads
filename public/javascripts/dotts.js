@@ -40,8 +40,8 @@ $(function() {
 });
 
 // var jr = {};
-jr.hostname = "http://localhost:3000";
-// jr.hostname = "http://jeffroush.dyndns.org/trails";
+// jr.hostname = "http://localhost:3000";
+jr.hostname = "http://jeffroush.dyndns.org/reads";
 
 jr.onTitleCommandClick = function(event, ui) {
   event.preventDefault();

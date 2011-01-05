@@ -43,8 +43,8 @@ jr.onMarkAsRead = function(event) {
 	// window.aab = event.currentTarget.form.parentNode;
 	var id = $(this).attr('data-itemid');
 	console.log('id: ' + id);
-	// var url = "/reads/feed_items/" + id + ".xml"
-	var url = "/feed_items/" + id + ".xml"
+	var url = "/reads/feed_items/" + id + ".xml"
+	// var url = "/feed_items/" + id + ".xml"
 	var div = $(this).parents(".item")[0];
 
 
