@@ -1,15 +1,18 @@
+<p id="notice"><%= notice %></p>
+
 
 <% current_trail_id = current_user.current_trail.id %>
 <% index = 0 %>
 
 <div id='all_trails_div' data-basepath="<%= root_url %>">
   <div id='feed_title_bar'>
-    <%= link_to 'All Links', links_path %>
-    <%= link_to "New Trail", new_trail_path, :class => 'titlecommand' %>
+    <%= link_to "#{@page.title}", edit_page_path(@page) %>
+    <%= link_to "New Trail", new_trail_path(:pageid => @page.id), :class => 'titlecommand' %>
+    <%= link_to 'All Links', links_path, :class => 'titlecommand'  %>
   </div>
   <% index = 0 %>
   <% @cols.each do |col|  %>
-  <div class="column" style='min-height: 13em;' data-column='<%= index %>'>
+  <div class="column column" style='min-height: 13em;' data-column='<%= index %>'>
     <% index += 1 %>
     <% col.each do |trail| %>
     <div class='traildiv'>

@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
   has_many :authentications
   has_many :trails
   has_one  :setting
+  has_many :pages
 
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable, :lockable and :timeoutable

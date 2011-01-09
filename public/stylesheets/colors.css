@@ -4,9 +4,12 @@ body {
 #outerdiv {
   background: #e6f0de; }
 
+.pagetitlebar,
+.pagetitle,
 .trailtitle,
 .trailtitlebar {
-  background: #2b3a50; }
+  background: #2b3a50;
+  color: #ccc; }
 
 #navdiv ol {
   background: #1d2e44;
@@ -21,6 +24,8 @@ body {
 #all_trails_title {
   background: #3e3022; }
 
+.pagetitlebar a,
+.pagetitlebar a:visited,
 .feed_title_bar a,
 .feed_title_bar a:visited,
 .trailtitle a,
@@ -33,6 +38,7 @@ a.titlecommand:visited,
 #all_trails_title a:visited {
   color: #ccc; }
 
+.pagetitlebar a:hover,
 .feed_title_bar a:hover,
 .trailtitle a:hover,
 a.trailtitlecommand:hover,

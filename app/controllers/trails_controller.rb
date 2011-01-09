@@ -1,30 +1,5 @@
 class TrailsController < ApplicationController
-
-
-  def get_columns_of_trails
-    cols = [ [], [], [], [] ]
-    current_user.sorted_trails.each do |trail|
-      cols[trail.column] << trail
-      puts "getting trail: " + trail.inspect
-      puts trail.column.inspect
-    end
-    
-    dump_cols cols
-    cols
-  end
-
-  def dump_cols cols
-    cols.each do |col|
-      puts "col: "
-      col.each do |item|
-        puts "  item: " + item.title
-      end
-    end
-  end
-
-
-
-
+  before_filter :authenticate_user!
 
   # GET /trails
   # GET /trails.xml
@@ -51,7 +26,8 @@ class TrailsController < ApplicationController
       current_user.setting.save
     end
 
-    @cols = get_columns_of_trails
+    # @cols = Trail.get_columns_of_trails current_user.sorted_trails
+    @cols = Trail.get_columns_of_trails current_user.sorted_trails
 
     respond_to do |format|
       format.html # index.html.erb
@@ -74,6 +50,9 @@ class TrailsController < ApplicationController
   # GET /trails/new.xml
   def new
     @trail = Trail.new
+    if params.has_key? :pageid
+      @trail.page_id = params[:pageid]
+    end
 
     respond_to do |format|
       format.html # new.html.erb
@@ -133,6 +112,36 @@ class TrailsController < ApplicationController
     end
   end
 
+  # Called when a trail is dropped onto a page in the "all pages" page
+  def sort_trails_list
+    logger.error "** in sort_trails_list"
+    logger.error params.inspect
+    render :xml => params
+
+    trailindexes = params[:indexes]
+    page_id      = params[:page_id]
+    if page_id == "-1"
+      return
+    end
+
+    sort_index = 0
+    logger.error "** in sortorder 2"
+    trailindexes.each do |index|
+      trail = Trail.find(index)
+      trail.page_id   = page_id 
+      trail.sort_index = sort_index
+      sort_index += 1
+      trail.save
+      logger.error "saving trail: " + trail.inspect
+    end
+    # logger.error "** in sortorder 3"
+
+    # respond_to do |format|
+    #   format.html { redirect_to index }
+    #   # format.xml  { head :ok }
+    # end
+  end
+
   def sortorder
     logger.error "** in sortorder"
     logger.error params.inspect
@@ -141,14 +150,16 @@ class TrailsController < ApplicationController
     column_index = params[:column_index]
     trailindexes = params[:indexes]
     sort_index = 0
+    logger.error "** in sortorder 2"
     trailindexes.each do |index|
       trail = Trail.find(index)
-      trail.column_id = column_index
+      trail.column_id = column_index if column_index
       trail.sort_index = sort_index
       sort_index += 1
       trail.save
-      puts "saving trail: " + trail.inspect
+      logger.error "saving trail: " + trail.inspect
     end
+    logger.error "** in sortorder 3"
 
     # respond_to do |format|
     #   format.html { redirect_to index }

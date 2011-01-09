@@ -1,6 +1,7 @@
 class Trail < ActiveRecord::Base
   has_many :links
   belongs_to :user
+  belongs_to :page
 
   def column
     self.column_id ||= 0
@@ -19,6 +20,27 @@ class Trail < ActiveRecord::Base
       link.sort_index = sort_index
       link.save
       sort_index = sort_index + 1
+    end
+  end
+
+  def self.get_columns_of_trails trails
+    cols = [ [], [], [], [] ]
+    trails.each do |trail|
+      cols[trail.column] << trail
+      puts "getting trail: " + trail.inspect
+      puts trail.column.inspect
+    end
+    
+    dump_cols cols
+    cols
+  end
+
+  def self.dump_cols cols
+    cols.each do |col|
+      puts "col: "
+      col.each do |item|
+        puts "  item: " + item.title
+      end
     end
   end
 end

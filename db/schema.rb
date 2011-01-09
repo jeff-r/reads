@@ -10,87 +10,96 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110102221923) do
+ActiveRecord::Schema.define(:version => 20110109194314) do
 
   create_table "authentications", :force => true do |t|
-    t.integer  "user_id"
-    t.string   "provider"
-    t.string   "uid"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.integer   "user_id"
+    t.string    "provider"
+    t.string    "uid"
+    t.timestamp "created_at"
+    t.timestamp "updated_at"
   end
 
   create_table "feed_items", :force => true do |t|
-    t.string   "title"
-    t.string   "link"
-    t.integer  "feed_id"
-    t.boolean  "read"
-    t.text     "description"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.datetime "pub_date"
-    t.integer  "num_threadentries"
-    t.boolean  "ignore_thread"
-    t.string   "guid"
+    t.string    "title"
+    t.string    "link"
+    t.integer   "feed_id"
+    t.boolean   "read"
+    t.text      "description"
+    t.timestamp "created_at"
+    t.timestamp "updated_at"
+    t.timestamp "pub_date"
+    t.integer   "num_threadentries"
+    t.boolean   "ignore_thread"
+    t.string    "guid"
   end
 
   create_table "feeds", :force => true do |t|
-    t.string   "url"
-    t.string   "title"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "user_id"
-    t.integer  "sort_order"
+    t.string    "url"
+    t.string    "title"
+    t.timestamp "created_at"
+    t.timestamp "updated_at"
+    t.integer   "user_id"
+    t.integer   "sort_order"
   end
 
   create_table "links", :force => true do |t|
+    t.string    "title"
+    t.string    "url"
+    t.integer   "trail_id"
+    t.integer   "sort_index"
+    t.timestamp "created_at"
+    t.timestamp "updated_at"
+  end
+
+  create_table "pages", :force => true do |t|
     t.string   "title"
-    t.string   "url"
-    t.integer  "trail_id"
-    t.integer  "sort_index"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
+    t.integer  "column_id"
   end
 
   create_table "reader_users", :force => true do |t|
-    t.string   "email"
-    t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.string    "email"
+    t.string    "name"
+    t.timestamp "created_at"
+    t.timestamp "updated_at"
   end
 
   create_table "settings", :force => true do |t|
-    t.integer  "user_id"
-    t.integer  "current_trail_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.integer   "user_id"
+    t.integer   "current_trail_id"
+    t.timestamp "created_at"
+    t.timestamp "updated_at"
   end
 
   create_table "trails", :force => true do |t|
-    t.string   "title"
-    t.integer  "sort_index"
-    t.integer  "user_id"
-    t.integer  "column_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.text     "notes"
-    t.string   "color"
+    t.string    "title"
+    t.integer   "sort_index"
+    t.integer   "user_id"
+    t.integer   "column_id"
+    t.timestamp "created_at"
+    t.timestamp "updated_at"
+    t.text      "notes"
+    t.string    "color"
+    t.integer   "page_id"
   end
 
   create_table "users", :force => true do |t|
-    t.string   "email",                               :default => "", :null => false
-    t.string   "encrypted_password",   :limit => 128, :default => "", :null => false
-    t.string   "password_salt",                       :default => "", :null => false
-    t.string   "reset_password_token"
-    t.string   "remember_token"
-    t.datetime "remember_created_at"
-    t.integer  "sign_in_count",                       :default => 0
-    t.datetime "current_sign_in_at"
-    t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip"
-    t.string   "last_sign_in_ip"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.string    "email",                               :default => "", :null => false
+    t.string    "encrypted_password",   :limit => 128, :default => "", :null => false
+    t.string    "password_salt",                       :default => "", :null => false
+    t.string    "reset_password_token"
+    t.string    "remember_token"
+    t.timestamp "remember_created_at"
+    t.integer   "sign_in_count",                       :default => 0
+    t.timestamp "current_sign_in_at"
+    t.timestamp "last_sign_in_at"
+    t.string    "current_sign_in_ip"
+    t.string    "last_sign_in_ip"
+    t.timestamp "created_at"
+    t.timestamp "updated_at"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

@@ -46,6 +46,7 @@ body {
 #navdiv a:hover {
   color: white;
 }
+.page_column,
 .column {
   list-style-type: none;
   margin: 0px;
@@ -53,6 +54,7 @@ body {
   float: left;
   width: 230px;
 }
+.pagediv,
 .traildiv {
   border: solid 1px #888;
   margin: 8px;
@@ -72,8 +74,8 @@ body {
   font-weight: bold;
 }
 
+.pagetitlebar,
 .trailtitlebar {
-  background: #400300;
   padding: 4px;
   height: 1.4em;
 }
@@ -98,6 +100,7 @@ body {
   background: none;
 }
 
+.traillist, 
 .traillinks {
   padding: 4px;
   clear: both;
@@ -123,6 +126,7 @@ a:hover {
 a:visited {
 }
 
+.pagetitlebar a 
 .trailtitlebar a {
   font-weight: bold;
   color: #ccc;
@@ -131,9 +135,9 @@ a:visited {
   */
 }
 
+.pagetitlebar a:hover,
 .trailtitlebar a:hover {
   color: white;
-  background: #400300;
   background: none;
 }
 

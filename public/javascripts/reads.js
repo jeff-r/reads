@@ -5,7 +5,6 @@ $(function() {
   }
 
 	$('.mark_as_read_button').click(jr.onMarkAsRead);
-	// $('a').attr('target', "_blank");
 	$("a[href^=http://]").attr('target', "_blank");
 	jr.setup_nav_draggables();
 });
@@ -18,33 +17,19 @@ jr.setup_nav_draggables = function() {
 				forcePlaceholderSize: true,
 				forceHolderSize: true
 				});
-				
-				
-	// $('.sortable').sortable();
-	// $('.sortable').disableSelection();
-	
-	// $('.nav_feed_link').draggable({ revert: true });
-	// $('#nav_feed_trash').droppable({
-	// 	hoverClass: 'droppable_hover',
-	// 	activeClass: 'droppable_active',
-	// 	accept: '.nav_feed_link',
-	// 	drop: function(event, ui) {
-	// 		console.log('dropped');
-	// 	}
-	// });
-}
+};
 
 
 jr.onMarkAsRead = function(event) {
 	event.preventDefault();
 
-	// window.aaa = event;
-	// window.aab = event.currentTarget.form.parentNode.action;
-	// window.aab = event.currentTarget.form.parentNode;
 	var id = $(this).attr('data-itemid');
 	console.log('id: ' + id);
-	var url = "/reads/feed_items/" + id + ".xml"
-	// var url = "/feed_items/" + id + ".xml"
+
+  // rails knows where the root_url of the app is, but we don't 
+  // So populate the value with rails, and read it here, in javascript
+  var root_url = $('#all_trails_div').attr('data-basepath');
+	var url = root_url + "feed_items/" + id + ".xml"
 	var div = $(this).parents(".item")[0];
 
 
@@ -66,20 +51,6 @@ jr.onMarkAsRead = function(event) {
 		}
 		
 	});
-
-
-
-
-
-	// $(this).fadeOut('slow', function() {
-	// 	$.ajax({
-	// 		type: 'POST',
-	// 		url: url,
-	// 		data: "_method=put"
-	// 	});
-	// 	console.log('Made ajax call');
-	// });
-	console.log('target: ' + event.currentTarget.baseURI);
 }
 
 jr.showAllMembers = function(obj) {

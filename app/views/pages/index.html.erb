@@ -1,0 +1,51 @@
+<div id='all_trails_div' data-basepath="<%= root_url %>">
+  <div id='feed_title_bar'>
+     All pages 
+    <%= link_to "New Page", new_page_path, :class => 'titlecommand' %>
+  </div>
+
+
+  <div class="page_column" style='min-height: 13em;'>
+    <% @pages.each do |page| %>
+    <div class='pagediv'>
+      <div class='pagetitlebar'>
+        <div class='pagetitle' data-pageid='<%= page.id %>'>
+          <%= link_to page.title, page %>
+        <%= link_to "edit", edit_page_path(page), :class => 'titlecommand' %>
+        </div>
+      </div>
+      <div class='traillist'>
+        <% page.trails.order('sort_index asc').each do |trail| %>
+        <div class='linkurl' data-id='<%= trail.id %>'><%= trail.title %></div>
+        <% end %>
+      </div>
+    </div>
+    <% end %>
+  </div>
+
+  <% if @orphan_trails.length > 0 %>
+    <div class="page_column" style='min-height: 13em;'>
+      <div class='pagediv'>
+        <div class='pagetitlebar'>
+          <div class='pagetitle' data-pageid='-1'>
+            Trails without pages
+          </div>
+        </div>
+        <div class='traillist'>
+          <% @orphan_trails.each do |trail| %>
+          <div class='linkurl' data-id='<%= trail.id %>'><%= trail.title %></div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+
+
+
+<br />
+
+
+</div>
+
+<br class='cleardiv' />
+

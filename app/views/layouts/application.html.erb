@@ -15,6 +15,7 @@
         <ul>
           <li><a href='<%= root_path %>trails'>Trails</a></li>
           <li><a href='<%= root_path %>'>Reads</a></li>
+          <li><a href='<%= pages_path %>'>Pages</a></li>
           <li>&nbsp;</li>
           <li><a href='/'>Site home</a></li>
           <li><a href='<%= root_path %>about'>About</a></li>
@@ -23,7 +24,14 @@
           <li><a href='<%= authentications_path %>'>Authentication methods</a></li>
         </ul>
 
+        <% pwd = request.env['PATH_INFO'] %> 
+        <% if pwd.include? "pages" or pwd.include? "trails" %> 
+        <%= render 'layouts/pages' %>
+        <% else %>
         <%= render 'layouts/feeds' %>
+        <% end %>
+
+
 
       </div>
       <div id='feedbox'>

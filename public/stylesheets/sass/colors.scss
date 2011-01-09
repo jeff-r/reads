@@ -42,9 +42,12 @@ body {
   background: darken($bgcolor, 5%);
 }
 
+.pagetitlebar,
+.pagetitle,
 .trailtitle,
 .trailtitlebar {
   background: $trailtitlebg;
+  color: #ccc;
 }
 
 #navdiv ol {
@@ -60,6 +63,8 @@ body {
 #all_trails_title {
   background: $titlebrown;
 }
+.pagetitlebar a,
+.pagetitlebar a:visited,
 .feed_title_bar a,
 .feed_title_bar a:visited,
 .trailtitle a,
@@ -73,6 +78,7 @@ a.titlecommand:visited,
 {
   color: #ccc;
 }
+.pagetitlebar a:hover,
 .feed_title_bar a:hover,
 .trailtitle a:hover,
 a.trailtitlecommand:hover,

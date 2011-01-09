@@ -1,4 +1,6 @@
 Reads::Application.routes.draw do
+  resources :pages
+
   resources :settings
 
 
@@ -25,6 +27,7 @@ Reads::Application.routes.draw do
   match '/subfeed/:id/:thread_id' => 'feeds#show', :as => 'subfeed'
 
   match '/trails/sortorder' => 'trails#sortorder', :via => [:post, :get]
+  match '/trails/sort_trails_list' => 'trails#sort_trails_list', :via => [:post, :get]
   match '/trails/setcurrent/:trailid' => 'trails#setcurrent', :via => [:post, :get], :as => 'setcurrent'
   
 
