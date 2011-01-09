@@ -59,6 +59,10 @@ body {
   border: solid 1px #888;
   margin: 8px;
   width: 214px;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+  -moz-border-radius-topright: 5px;
+  -moz-border-radius-topleft: 5px;
 }
 .currenttrail {
   background: #eef;
@@ -67,17 +71,29 @@ body {
 
 #all_trails_div {
   padding: 0px;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+  -moz-border-radius-topright: 5px;
+  -moz-border-radius-topleft: 5px;
 }
 #all_trails_title {
   width: 100%;
   padding: 4px;
   font-weight: bold;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+  -moz-border-radius-topright: 5px;
+  -moz-border-radius-topleft: 5px;
 }
 
 .pagetitlebar,
 .trailtitlebar {
   padding: 4px;
   height: 1.4em;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+  -moz-border-radius-topright: 5px;
+  -moz-border-radius-topleft: 5px;
 }
 .trailtitle {
   width: 140px;
@@ -86,6 +102,10 @@ body {
   float:left;
   padding-right: 0;
   margin-right: 0;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+  -moz-border-radius-topright: 5px;
+  -moz-border-radius-topleft: 5px;
 }
 .titlecommand:first {
   float: right; 

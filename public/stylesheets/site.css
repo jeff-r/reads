@@ -198,6 +198,10 @@ p {
   background: #3E3022;
   color: #ddd;
   padding: 4px;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+  -moz-border-radius-topright: 5px;
+  -moz-border-radius-topleft: 5px;
 }
 #feed_title_bar a {
   color: #ddd;
