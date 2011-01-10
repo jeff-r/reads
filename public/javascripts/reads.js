@@ -28,7 +28,7 @@ jr.onMarkAsRead = function(event) {
 
   // rails knows where the root_url of the app is, but we don't 
   // So populate the value with rails, and read it here, in javascript
-  var root_url = $('#all_trails_div').attr('data-basepath');
+  var root_url = $('#feed_header').attr('data-basepath');
 	var url = root_url + "feed_items/" + id + ".xml"
 	var div = $(this).parents(".item")[0];
 

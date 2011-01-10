@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<div id='feed_header'>
+<div id='feed_header' data-basepath="<%= root_path %>">
   <div id='feed_title_bar'>
     <a href='<%= @feed.url %>'><%= @feed.title %></a>
     <%= link_to 'Refresh the feed', refresh_path(@feed), :class => 'feed_command' %>
